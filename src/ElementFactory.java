@@ -33,7 +33,9 @@ public class ElementFactory {
 	}
 
 	public Element createElement(String elementType) {
-		return null; // :)
+		if (elementMap.containsKey(elementType))
+			return elementMap.get(elementType);
+		return null;
 	}
 
 	public Element createParagraph() {
