@@ -1,5 +1,5 @@
 package composite;
 
-public class CompositeElement {
+public class CompositeElement extends Element {
 
 }

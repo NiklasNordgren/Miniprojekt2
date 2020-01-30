@@ -1,5 +1,5 @@
 package composite;
 
-public class Paragraph {
+public class Paragraph extends Element {
 
 }

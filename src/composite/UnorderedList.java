@@ -1,5 +1,5 @@
 package composite;
 
-public class UnorderedList {
+public class UnorderedList extends Element {
 
 }

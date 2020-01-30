@@ -1,5 +1,5 @@
 package composite;
 
-public class Table {
+public class Table extends Element {
 
 }

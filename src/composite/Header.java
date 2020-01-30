@@ -1,5 +1,5 @@
 package composite;
 
-public class Header {
+public class Header extends Element {
 
 }
