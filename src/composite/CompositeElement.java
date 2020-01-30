@@ -1,20 +1,15 @@
 package composite;
 
-import java.util.Iterator;
+import java.util.ArrayList;
 
 public class CompositeElement extends Element {
 
 	public CompositeElement() {
-
+		this.elements = new ArrayList<Element>();
 	}
 
-	public void addElement() {
-
-	}
-
-	@Override
-	public Iterator<Element> getIterator() {
-		return null;
+	public void addElement(Element element) {
+		this.elements.add(element);
 	}
 
 }

@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Element {
 
-	private List<Element> elements;
+	protected List<Element> elements;
 
 	public Element() {
 		this.elements = null;

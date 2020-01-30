@@ -1,11 +1,13 @@
 package composite;
 
+import java.util.ArrayList;
+
 public class Header extends Element {
 
-	String text;
+	private String text;
 
 	public Header() {
-
+		this.elements = new ArrayList<Element>();
 	}
 
 	@Override

@@ -1,10 +1,13 @@
 package composite;
 
+import java.util.ArrayList;
+
 public class Paragraph extends Element {
 
 	private String text;
 
 	public Paragraph() {
+		this.elements = new ArrayList<Element>();
 	}
 
 	@Override

@@ -19,7 +19,6 @@ public class ElementFactory {
 	public static ElementFactory getInstance() {
 		if (instance == null)
 			instance = new ElementFactory();
-
 		return instance;
 	}
 
@@ -38,7 +37,7 @@ public class ElementFactory {
 		return null;
 	}
 
-	public Element createParagraph() {
+	private Element createParagraph() {
 		return new Paragraph();
 	}
 
