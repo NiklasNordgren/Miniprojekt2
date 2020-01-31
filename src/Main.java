@@ -9,9 +9,9 @@ public class Main {
 		Document document = new Document();
 
 		Element paragraph = document.createElement("paragraph");
-		paragraph.setText("hej");
+		paragraph.setText("blablabla");
 		Element header = document.createElement("header");
-		header.setText("mursice");
+		header.setText("rubrik");
 
 		List<Element> elements = document.getElements();
 

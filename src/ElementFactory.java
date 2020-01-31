@@ -4,7 +4,6 @@ import composite.CompositeElement;
 import composite.Element;
 import composite.Header;
 import composite.Paragraph;
-import composite.Table;
 import composite.UnorderedList;
 
 public class ElementFactory {
@@ -26,7 +25,6 @@ public class ElementFactory {
 		elementMap = new HashMap<String, Element>();
 		elementMap.put("paragraph", this.createParagraph());
 		elementMap.put("header", this.createHeader());
-		elementMap.put("table", this.createTable());
 		elementMap.put("unorderedlist", this.createUnorderedList());
 		elementMap.put("compositeelement", this.createCompositeElement());
 	}
@@ -43,10 +41,6 @@ public class ElementFactory {
 
 	private Element createUnorderedList() {
 		return new UnorderedList();
-	}
-
-	private Element createTable() {
-		return new Table();
 	}
 
 	private Element createHeader() {
