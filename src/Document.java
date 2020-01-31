@@ -25,8 +25,7 @@ public class Document {
 
 	public void printAll() {
 		for (Element e : elements) {
-
-			System.out.println(e.getText());
+			e.print();
 		}
 
 	}

@@ -1,29 +1,29 @@
 package composite;
 
-import java.util.Iterator;
 import java.util.List;
 
-public class Element {
-
+public abstract class Element {
+	
+	protected String text;
 	protected List<Element> elements;
 
-	public Element() {
-		this.elements = null;
-	}
-
 	public void print() {
-
+		System.out.println(text);
 	}
-
+	
 	public void setText(String text) {
+		this.text = text;
 	}
 
 	public String getText() {
-		return null;
+		return this.text;
 	}
-
-	public Iterator<Element> getIterator() {
-		return elements.iterator();
+	
+	public void addElement(Element element) {
+	}
+	
+	public List<Element> getElements() {
+		return this.elements;
 	}
 
 }

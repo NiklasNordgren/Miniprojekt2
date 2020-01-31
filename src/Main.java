@@ -9,15 +9,18 @@ public class Main {
 		Document document = new Document();
 
 		Element paragraph = document.createElement("paragraph");
-		paragraph.setText("blablabla");
+		paragraph.setText("Test paragraph");
+		
 		Element header = document.createElement("header");
-		header.setText("rubrik");
-
-		List<Element> elements = document.getElements();
-
-		for (Element e : elements) {
-			System.out.println(e.getText());
-		}
+		header.setText("Test header");
+		
+		Element compositeElement = document.createElement("compositeelement");
+		compositeElement.setText("Test");
+		
+		compositeElement.addElement(paragraph);
+		compositeElement.addElement(header);
+		
+		document.printAll();
 
 	}
 
