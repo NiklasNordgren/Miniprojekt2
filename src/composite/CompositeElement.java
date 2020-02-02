@@ -26,6 +26,11 @@ public class CompositeElement extends Element {
 	}
 
 	@Override
+	public void removeElement(Element element) {
+		this.elements.remove(element);
+	}
+
+	@Override
 	public List<Element> getElements() {
 		return this.elements;
 	}
