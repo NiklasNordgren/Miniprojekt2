@@ -22,6 +22,9 @@ public abstract class Element {
 	public void addElement(int index, Element element) {
 	}
 
+	public void removeElement(int index) {
+	}
+
 	public List<Element> getElements() {
 		return this.elements;
 	}

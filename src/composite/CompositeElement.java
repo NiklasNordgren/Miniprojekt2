@@ -17,8 +17,12 @@ public class CompositeElement extends Element {
 
 	@Override
 	public void addElement(int index, Element element) {
-		if (!(index > elements.size()) && element != null)
-			this.elements.add(index, element);
+		this.elements.add(index, element);
+	}
+
+	@Override
+	public void removeElement(int index) {
+		this.elements.remove(index);
 	}
 
 	@Override
