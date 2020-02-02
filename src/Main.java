@@ -1,5 +1,3 @@
-import java.util.List;
-
 import composite.Element;
 
 public class Main {
@@ -10,16 +8,16 @@ public class Main {
 
 		Element paragraph = document.createElement("paragraph");
 		paragraph.setText("Test paragraph");
-		
+
 		Element header = document.createElement("header");
 		header.setText("Test header");
-		
+
 		Element compositeElement = document.createElement("compositeelement");
 		compositeElement.setText("Test");
-		
-		compositeElement.addElement(paragraph);
-		compositeElement.addElement(header);
-		
+
+		compositeElement.addElement(compositeElement.getElements().size(), paragraph);
+		compositeElement.addElement(compositeElement.getElements().size(), header);
+
 		document.printAll();
 
 	}
