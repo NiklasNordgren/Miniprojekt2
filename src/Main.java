@@ -1,22 +1,32 @@
-import composite.Element;
+import facade.Document;
+import factory.ElementFactory;
+import factory.HTMLElementFactory;
+import factory.LATEXElementFactory;
+import visitor.HTMLVisitor;
+import visitor.LATEXVistor;
+import visitor.Visitor;
 
 public class Main {
 
 	public static void main(String[] args) {
 
-		Document document = new Document();
+		ElementFactory htmlElementFactory = HTMLElementFactory.getInstance();
+		ElementFactory latexElementFactory = LATEXElementFactory.getInstance();
 
-		Element paragraph = document.createElement("paragraph");
-		paragraph.setText("Test paragraph");
+		Visitor visitor1 = new HTMLVisitor();
+		Visitor visitor2 = new LATEXVistor();
 
-		Element header = document.createElement("header");
-		header.setText("Test header");
+		Document document = new Document(htmlElementFactory);
 
-		Element compositeElement = document.createElement("compositeelement");
-		compositeElement.setText("Test");
+		document.createElement("paragraph").setText("paragraph1");
+		document.createElement("paragraph").setText("paragraph2");
+		document.createElement("paragraph").setText("paragraph3");
 
-		compositeElement.addElement(compositeElement.getElements().size(), paragraph);
-		compositeElement.addElement(compositeElement.getElements().size(), header);
+		document.createElement("header").setText("header1");
+		document.createElement("header").setText("header1");
+
+		// for (Element e : document.getElements())
+		// e.accept(visitor2);
 
 		document.printAll();
 

@@ -2,21 +2,37 @@ package composite;
 
 import java.util.List;
 
-public abstract class Element {
+import visitor.Visitable;
 
-	protected String text;
+public abstract class Element implements Visitable {
+
+	private String text;
+	private String startTag;
+	private String endTag;
 	protected List<Element> elements;
 
 	public void print() {
-		System.out.println(text);
+		System.out.println(startTag + text + endTag);
 	}
 
-	public void setText(String text) {
+	public Element setText(String text) {
 		this.text = text;
+		return this;
+	}
+
+	public void setStartTag(String startTag) {
+		this.startTag = startTag;
+	}
+
+	public void setEndTag(String endTag) {
+		this.endTag = endTag;
 	}
 
 	public String getText() {
-		return this.text;
+		return this.startTag + this.text + this.endTag;
+	}
+
+	public void addElement(Element element) {
 	}
 
 	public void addElement(int index, Element element) {

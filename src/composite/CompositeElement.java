@@ -3,7 +3,7 @@ package composite;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CompositeElement extends Element {
+public abstract class CompositeElement extends Element {
 
 	public CompositeElement() {
 		this.elements = new ArrayList<Element>();
@@ -12,7 +12,12 @@ public class CompositeElement extends Element {
 	@Override
 	public void print() {
 		for (Element e : elements)
-			System.out.println(e.text);
+			System.out.println(e.getText());
+	}
+
+	@Override
+	public void addElement(Element element) {
+		this.elements.add(element);
 	}
 
 	@Override
@@ -36,7 +41,8 @@ public class CompositeElement extends Element {
 	}
 
 	@Override
-	public void setText(String text) {
+	public Element setText(String text) {
+		return this;
 	}
 
 }
