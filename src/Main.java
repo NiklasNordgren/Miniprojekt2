@@ -18,12 +18,17 @@ public class Main {
 
 		Document document = new Document(htmlElementFactory);
 
-		document.createElement("paragraph").setText("paragraph1");
-		document.createElement("paragraph").setText("paragraph2");
-		document.createElement("paragraph").setText("paragraph3");
+		document.addParagraph("test");
+		document.undoParagraph();
 
-		document.createElement("header").setText("header1");
-		document.createElement("header").setText("header1");
+		/*
+		 * document.createElement("paragraph").setText("paragraph1");
+		 * document.createElement("paragraph").setText("paragraph2");
+		 * document.createElement("paragraph").setText("paragraph3");
+		 * 
+		 * document.createElement("header").setText("header1");
+		 * document.createElement("header").setText("header1");
+		 */
 
 		// for (Element e : document.getElements())
 		// e.accept(visitor2);
