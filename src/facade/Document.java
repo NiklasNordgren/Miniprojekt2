@@ -28,6 +28,10 @@ public class Document {
 		return element;
 	}
 
+	public void removeElement(Element element) {
+		this.elements.remove(element);
+	}
+
 	public void addParagraph(String paragraphText) {
 		new AddParagraphCommand(this, paragraphText).redo();
 	}
