@@ -36,8 +36,12 @@ public class Document {
 		new AddParagraphCommand(this, paragraphText).redo();
 	}
 
+	public void redoParagraph() {
+		this.popFromRedoStack().redo();
+	}
+
 	public void undoParagraph() {
-		this.popFromUndoStack();
+		this.popFromUndoStack().undo();
 	}
 
 	public List<Element> getElements() {
