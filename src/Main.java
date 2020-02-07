@@ -35,17 +35,19 @@ public class Main {
 
 		document1.printAll();
 
-		Document document2 = new Document(latexElementFactory);
-
-		Command c3 = new AddHeaderCommand(document2, "This is a LATEX header.");
-		Command c4 = new AddParagraphCommand(document2, "This is a LATEX paragraph.");
-
-		document2.redo(c3);
-		document2.redo(c4);
-
-		document2.undo();
-
-		document2.printAll();
+		/*
+		 * Document document2 = new Document(latexElementFactory);
+		 * 
+		 * Command c3 = new AddHeaderCommand(document2, "This is a LATEX header.");
+		 * Command c4 = new AddParagraphCommand(document2,
+		 * "This is a LATEX paragraph.");
+		 * 
+		 * document2.redo(c3); document2.redo(c4);
+		 * 
+		 * document2.undo();
+		 * 
+		 * document2.printAll();
+		 */
 
 	}
 
