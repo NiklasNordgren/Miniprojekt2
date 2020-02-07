@@ -1,3 +1,4 @@
+import composite.Element;
 import facade.Document;
 import factory.ElementFactory;
 import factory.HTMLElementFactory;
@@ -19,19 +20,19 @@ public class Main {
 		Document document = new Document(htmlElementFactory);
 
 		document.addParagraph("test");
+		document.addParagraph("test2");
+
+		document.undoParagraph();
 		document.undoParagraph();
 
-		/*
-		 * document.createElement("paragraph").setText("paragraph1");
-		 * document.createElement("paragraph").setText("paragraph2");
-		 * document.createElement("paragraph").setText("paragraph3");
-		 * 
-		 * document.createElement("header").setText("header1");
-		 * document.createElement("header").setText("header1");
-		 */
+		document.redoParagraph();
+		document.redoParagraph();
 
-		// for (Element e : document.getElements())
-		// e.accept(visitor2);
+		for (Element e : document.getElements())
+			e.accept(visitor2);
+
+		for (Element e : document.getElements())
+			e.accept(visitor1);
 
 		document.printAll();
 
