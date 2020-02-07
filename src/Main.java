@@ -1,4 +1,7 @@
-import composite.Element;
+import command.AddHeaderCommand;
+import command.AddParagraphCommand;
+import command.Command;
+import command.MacroCommand;
 import facade.Document;
 import factory.ElementFactory;
 import factory.HTMLElementFactory;
@@ -17,24 +20,34 @@ public class Main {
 		Visitor visitor1 = new HTMLVisitor();
 		Visitor visitor2 = new LATEXVistor();
 
-		Document document = new Document(htmlElementFactory);
+		Document document1 = new Document(htmlElementFactory);
 
-		document.addParagraph("test");
-		document.addParagraph("test2");
+		Command c1 = new AddHeaderCommand(document1, "This is a html header.", 2);
+		Command c2 = new AddParagraphCommand(document1, "This is a html paragraph.");
 
-		document.undoParagraph();
-		document.undoParagraph();
+		MacroCommand macroCommand = new MacroCommand();
+		macroCommand.add(c1);
+		macroCommand.add(c2);
 
-		document.redoParagraph();
-		document.redoParagraph();
+		document1.redo(macroCommand);
+		document1.undo(macroCommand);
+		document1.redo();
 
-		for (Element e : document.getElements())
-			e.accept(visitor2);
+		document1.printAll();
 
-		for (Element e : document.getElements())
-			e.accept(visitor1);
-
-		document.printAll();
+		/*
+		 * Document document2 = new Document(latexElementFactory);
+		 * 
+		 * Command c3 = new AddHeaderCommand(document2, "This is a LATEX header.", 2);
+		 * Command c4 = new AddParagraphCommand(document2,
+		 * "This is a LATEX paragraph.");
+		 * 
+		 * document2.redo(c3); document2.redo(c4);
+		 * 
+		 * document2.undo();
+		 * 
+		 * document2.printAll();
+		 */
 
 	}
 

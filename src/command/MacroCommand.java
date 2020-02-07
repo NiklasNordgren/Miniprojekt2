@@ -11,14 +11,23 @@ public class MacroCommand implements Command {
 		this.commands = new ArrayList<Command>();
 	}
 
+	public MacroCommand add(Command c) {
+		this.commands.add(c);
+		return this;
+	}
+
 	@Override
 	public boolean redo() {
-		return false;
+		for (Command c : commands)
+			c.redo();
+		return true;
 	}
 
 	@Override
 	public boolean undo() {
-		return false;
+		for (Command c : commands)
+			c.undo();
+		return true;
 	}
 
 }

@@ -4,22 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-import command.AddParagraphCommand;
 import command.Command;
 import composite.Element;
 import factory.ElementFactory;
 
 public class Document {
 
-	private List<Element> elements;
+	private List<Element> elements = new ArrayList<Element>();
 	private ElementFactory elementFactory;
 
 	private Stack<Command> redoStack = new Stack<Command>();
 	private Stack<Command> undoStack = new Stack<Command>();
 
+	private List<Command> commands = new ArrayList<Command>();
+
 	public Document(ElementFactory elementFactory) {
 		this.elementFactory = elementFactory;
-		this.elements = new ArrayList<Element>();
 	}
 
 	public Element createElement(String elementType) {
@@ -32,16 +32,26 @@ public class Document {
 		this.elements.remove(element);
 	}
 
-	public void addParagraph(String paragraphText) {
-		new AddParagraphCommand(this, paragraphText).redo();
+	public void redo(Command c) {
+		this.pushToUndoStack(c);
+		c.redo();
 	}
 
-	public void redoParagraph() {
-		this.popFromRedoStack().redo();
+	public void undo(Command c) {
+		this.pushToRedoStack(c);
+		c.undo();
 	}
 
-	public void undoParagraph() {
-		this.popFromUndoStack().undo();
+	public void redo() {
+		Command c = this.popFromRedoStack();
+		c.redo();
+		this.pushToUndoStack(c);
+	}
+
+	public void undo() {
+		Command c = this.popFromUndoStack();
+		c.undo();
+		this.pushToRedoStack(c);
 	}
 
 	public List<Element> getElements() {
