@@ -16,8 +16,6 @@ public class Document {
 	private Stack<Command> redoStack = new Stack<Command>();
 	private Stack<Command> undoStack = new Stack<Command>();
 
-	private List<Command> commands = new ArrayList<Command>();
-
 	public Document(ElementFactory elementFactory) {
 		this.elementFactory = elementFactory;
 	}

@@ -22,7 +22,7 @@ public class Main {
 
 		Document document1 = new Document(htmlElementFactory);
 
-		Command c1 = new AddHeaderCommand(document1, "This is a html header.", 2);
+		Command c1 = new AddHeaderCommand(document1, "This is a html header.");
 		Command c2 = new AddParagraphCommand(document1, "This is a html paragraph.");
 
 		MacroCommand macroCommand = new MacroCommand();
@@ -38,7 +38,7 @@ public class Main {
 		/*
 		 * Document document2 = new Document(latexElementFactory);
 		 * 
-		 * Command c3 = new AddHeaderCommand(document2, "This is a LATEX header.", 2);
+		 * Command c3 = new AddHeaderCommand(document2, "This is a LATEX header.");
 		 * Command c4 = new AddParagraphCommand(document2,
 		 * "This is a LATEX paragraph.");
 		 * 
